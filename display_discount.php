@@ -4,6 +4,11 @@ $retail_price =$_POST['list_price'];
 $discount_rate =$_POST['discount_percent'];
 $discount_amount =$retail_price * ($discount_rate)/100;
 $discount_price =$retail_price - $discount_amount;
+$discount_price_formatted = "$ ".$discount_price;
+        $discount_rate_formatted = $discount_rate." %";
+       	 $retail_price_formatted = "$ ".$retail_price;
+	 $discount_amount_formatted = "$ ".$discount_amount;
+
 ?>
 
 <!DOCTYPE html>
@@ -14,22 +19,22 @@ $discount_price =$retail_price - $discount_amount;
 </head>
 <body>
     <main>
-        <h1>This page is under construction</h1>
+        <h1>Product Discount Calculator</h1>
 
         <label>Product Description:</label>
-        <span><?php echo $product_description; ?></span><br>
+        <span><?php echo htmlspecialchars($product_description); ?></span><br>
 
         <label>List Price:</label>
-        <span><?php echo $retail_price; ?></span><br>
+        <span><?php echo htmlspecialchars($retail_price_formatted); ?></span><br>
 
         <label>Standard Discount:</label>
-        <span><?php echo $discount_rate; ?></span><br>
+        <span><?php echo htmlspecialchars($discount_rate_formatted); ?></span><br>
 
         <label>Discount Amount:</label>
-        <span><?php echo $discount_amount; ?></span><br>
+        <span><?php echo $discount_amount_formatted; ?></span><br>
 
         <label>Discount Price:</label>
-        <span><?php echo $discount_price; ?></span><br>
+        <span><?php echo $discount_price_formatted; ?></span><br>
     </main>
 </body>
 </html>
